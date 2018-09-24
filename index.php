@@ -122,7 +122,7 @@ function moveBall() {
     ball.el.style.transform = "perspective(20px) translate(" + ball.x + "px," + ball.y + "px)";
 }
 
-var areas = Array.from (document.querySelectorAll('.area'))
+var areas = Array.from(document.querySelectorAll('.area'));
 areas.forEach((element, index) => {
     setTimeout(function() {
         areas[index].classList.add("pulse");
