@@ -70,10 +70,28 @@ function updateGame() {
     if (keys[68]) {
         player.x = player.x + player.step;
     }
-    console.log(player.x + " " + player.y);
+    //console.log(player.x + " " + player.y);
+
+    var disX = player.x - ball.x;
+    var disY = player.y - ball.y;
+
+    var distance = Math.sqrt( disX*disX + disY*disY );
+    //console.log(distance);
+    if (distance <= 8) {
+        kickBall();
+    }
     movePlayer();
+    moveBall();
 }
 
+function kickBall() {
+    var min = -100;
+    var max = +100;
+    var randX = Math.random() * (max - min) + min;
+    var randY = Math.random() * (max - min) + min;
+    ball.x += randX;
+    ball.y += randY;
+}
 
 document.onkeydown = function(e) {
     keys[e.which] = true;
@@ -84,12 +102,15 @@ document.onkeyup = function(e) {
 };
 
 function movePlayer() {
-    player.el.style.transform = "translate(" + player.x + "px," + player.y + "px)";
+    player.el.style.transform = "perspective(20px) translate(" + player.x + "px," + player.y + "px)";
+}
+
+function moveBall() {
+    ball.el.style.transform = "perspective(20px) translate(" + ball.x + "px," + ball.y + "px)";
 }
 
 var areas = Array.from (document.querySelectorAll('.a'))
 areas.forEach((element, index) => {
-    console.log(element);
     setTimeout(function() {
         areas[index].classList.add("pulse");
     }, 100 * index);
