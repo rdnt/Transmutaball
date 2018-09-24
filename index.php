@@ -34,7 +34,7 @@
         <div class="a"></div>
         <div class="a"></div>
         <b></b>
-        <p id="player" style="top:0;left:0;w"></p>
+        <p id="player"></p>
     </div>
 </div>
 <script>
