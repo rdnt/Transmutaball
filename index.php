@@ -6,7 +6,6 @@
 <title>Football</title>
 </head>
 <body>
-<div class="container">
     <div class="pitch">
         <div class="c center"></div>
         <div class="c left"></div>
@@ -33,16 +32,20 @@
         <div class="a"></div>
         <div class="a"></div>
         <div class="a"></div>
-        <b></b>
+        <b id="ball"></b>
         <p id="player"></p>
     </div>
-</div>
 <script>
 var player = {};
 player.el = document.getElementById("player");
 player.x = 0;
 player.y = 0
 player.step = 1;
+
+var ball = {};
+ball.el = document.getElementById("ball");
+ball.x = 0;
+ball.y = 0
 
 var keys = {};
 
@@ -81,8 +84,7 @@ document.onkeyup = function(e) {
 };
 
 function movePlayer() {
-    player.el.style.top = player.y + "px";
-    player.el.style.left = player.x + "px";
+    player.el.style.transform = "translate(" + player.x + "px," + player.y + "px)";
 }
 
 var areas = Array.from (document.querySelectorAll('.a'))
