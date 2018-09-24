@@ -1,8 +1,10 @@
 // out: ../css/main.css, compress: true
-@bg1: #036803;
-@bg2: #046504;
-@bg1: linear-gradient(120deg, #dc4ed3, #5129d5);
-@bg2: rgba(0,0,0,.05);
+@bg: linear-gradient(120deg, #1FAF4D, #0B6E4F);
+@bg-fix1: linear-gradient(120deg, #1ca049, #189a4d);
+@bg-fix2: linear-gradient(120deg, #107b4a, #0d744f);
+
+@area-bg: rgba(0,0,0,.03);
+@area-shadow-bg: rgba(0,0,0,.06);
 
 @scale: .5;
 @width: @scale * 1.3;
@@ -26,7 +28,7 @@ html, body {
 
     width: 1000px * @width;
     height: 1000px * @height;
-    background: @bg1;
+    background: @bg;
     position: relative;
     box-shadow: 0 0 0 2pt * @scale #fff;
 
@@ -75,16 +77,16 @@ html, body {
         position: absolute;
         z-index: 20;
         width: 18% / @width * @scale;
-        height: 44% / @width * @scale;
+        height: 44% / @height * @scale;
         top: 50%;
         transform: translateY(-50%);
         &.left {
             left: 0;
-            background: linear-gradient(120deg, #d04bd3, #b042d3);
+            background: @bg-fix1;
         }
         &.right {
             right: 0;
-            background: linear-gradient(120deg, #7d34d4, #5d2cd5);
+            background: @bg-fix2;
         }
     }
     .g {
@@ -134,16 +136,18 @@ html, body {
         transform: translateX(-50%);
         background-color: #fff;
     }
-    .a {
+    .area, .area-shadow {
         position: relative;
         z-index: 20;
         display: block;
         width: 4.1666666%;
         height: 100%;
-        background: @bg2;
-        margin-right: 4.16666665%;
+        background: @area-bg;
         padding: 0;
         float: left;
+    }
+    .area-shadow {
+        background: @area-shadow-bg;
     }
     b {
         position: absolute;
@@ -160,7 +164,9 @@ html, body {
             content: '';
             width: 10px * @scale;
             height: 10px * @scale;
-            background: linear-gradient(180deg, #aaa, #777);
+            //background: linear-gradient(180deg, #aaa, #777);
+            background-image: url("/images/ball.png");
+            background-size: 10px * @scale;
             display: block;
             border-radius: 50%;
             transform: translateY(-5px) scaleY(1) scaleY(2);
@@ -193,10 +199,10 @@ html, body {
     }
     @keyframes pulse {
         0% {
-            background: rgba(0,0,0,.03);
+            background: rgba(0,0,0,0);
         }
         100% {
-            background: @bg2;
+            background: @area-bg;
         }
     }
 }

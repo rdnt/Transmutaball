@@ -20,18 +20,31 @@
         <div class="m left"></div>
         <div class="m right"></div>
         <div class="hw"></div>
-        <div class="a"></div>
-        <div class="a"></div>
-        <div class="a"></div>
-        <div class="a"></div>
-        <div class="a"></div>
-        <div class="a"></div>
-        <div class="a"></div>
-        <div class="a"></div>
-        <div class="a"></div>
-        <div class="a"></div>
-        <div class="a"></div>
-        <div class="a"></div>
+        <div class="area"></div>
+        <div class="area-shadow"></div>
+        <div class="area"></div>
+        <div class="area-shadow"></div>
+        <div class="area"></div>
+        <div class="area-shadow"></div>
+        <div class="area"></div>
+        <div class="area-shadow"></div>
+        <div class="area"></div>
+        <div class="area-shadow"></div>
+        <div class="area"></div>
+        <div class="area-shadow"></div>
+
+        <div class="area"></div>
+        <div class="area-shadow"></div>
+        <div class="area"></div>
+        <div class="area-shadow"></div>
+        <div class="area"></div>
+        <div class="area-shadow"></div>
+        <div class="area"></div>
+        <div class="area-shadow"></div>
+        <div class="area"></div>
+        <div class="area-shadow"></div>
+        <div class="area"></div>
+        <div class="area-shadow"></div>
         <b id="ball"></b>
         <p id="player"></p>
     </div>
@@ -109,7 +122,7 @@ function moveBall() {
     ball.el.style.transform = "perspective(20px) translate(" + ball.x + "px," + ball.y + "px)";
 }
 
-var areas = Array.from (document.querySelectorAll('.a'))
+var areas = Array.from (document.querySelectorAll('.area'))
 areas.forEach((element, index) => {
     setTimeout(function() {
         areas[index].classList.add("pulse");
