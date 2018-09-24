@@ -52,13 +52,13 @@
 var player = {};
 player.el = document.getElementById("player");
 player.x = 0;
-player.y = 0
+player.y = 0;
 player.step = 1;
 
 var ball = {};
 ball.el = document.getElementById("ball");
 ball.x = 0;
-ball.y = 0
+ball.y = 0;
 
 var keys = {};
 
