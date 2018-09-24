@@ -23,6 +23,7 @@ html, body {
     top: calc(~"25% - 225px");
 }
 .pitch {
+    z-index: 0;
     left: calc(~"50%" - 500px * @width);
     top: calc(~"50%" - 500px * @height);
 
@@ -32,11 +33,23 @@ html, body {
     position: relative;
     box-shadow: 0 0 0 2pt * @scale #fff;
 
-    transform: perspective(500px) rotateX(20deg) scaleX(2);
+    transform: perspective(500px) rotateX(20deg) scaleX(2 )translateZ(10px);
     transform-style: preserve-3d;
 
     border-radius: 10px;
+    &::after {
+        transform: translateZ(-20px) translateY(10px);
+        position: relative;
+        z-index: -1000;
+        content: '';
+        display: block;
+        background: #000;
+        width: 1000px * @width;
+        height: 1000px * @height;
+        border-radius: 10px;
+        box-shadow: 0 0 40pt 40pt * @scale #000;
 
+    }
     .c {
         position: absolute;
         z-index: 10;
